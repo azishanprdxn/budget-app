@@ -3,55 +3,56 @@ let budget;
 let expense;
 let expenseAmount;
 
+// Texts
 let budgetText = document.getElementById('budget-text');
 let expenseText = document.getElementById('expense-text');
 let balanceText = document.getElementById('balance-text');
 
+//  Buttons
 let calculate = document.getElementById('calculate');
 let addExpense = document.getElementById('add-expense');
 
+// Regex for Numbers
 let numberPattern = /^[0-9]*$/;
 
-let helper = document.getElementsByClassName('helper');
+// Helpers for Validation
+let helperLength = document.getElementsByClassName('helper').length;
+let helperArray = [];
+for (let i = 0; i < helperLength; i++) {
+  helperArray.push(document.getElementsByClassName('helper')[i]);
+}
 
+// On Clicks
 calculate.onclick = onCalculate;
 addExpense.onclick = onAddExpense;
 
+// On Calculate Function
 function onCalculate() {
   budget = document.getElementById('budget').value;
   if (budget.match(numberPattern) && budget !== '') {
-    helper[0].style.opacity = '0';
-    helper[0].style.paddingLeft = '6px';
+    hideHelper(0);
     budgetText.innerHTML = budget;
     calculateExpense();
     balanceText.innerHTML = budget - expenseText.innerHTML;
   } else {
-    helper[0].style.opacity = '1';
-    helper[0].style.paddingLeft = '12px';
-    helper[0].style.transition = '.2s';
+    showHelper(0);
   }
 }
 
+// On Add Expense Function
 function onAddExpense() {
   expense = document.getElementById('expense').value;
   expenseAmount = document.getElementById('expense-amount').value;
   if (!expense) {
-    helper[1].style.opacity = '1';
-    helper[1].style.paddingLeft = '12px';
-    helper[1].style.transition = '.2s';
+    showHelper(1);
   } else {
-    helper[1].style.opacity = '0';
-    helper[1].style.paddingLeft = '6px';
+    hideHelper(1);
   }
   if (expenseAmount.match(numberPattern) && expenseAmount !== '') {
-    helper[2].style.opacity = '0';
-    helper[2].style.paddingLeft = '6px';
+    hideHelper(2);
   } else {
-    helper[2].style.opacity = '1';
-    helper[2].style.paddingLeft = '12px';
-    helper[2].style.transition = '.2s';
+    showHelper(2);
   }
-
   if (!expense || !(expenseAmount.match(numberPattern) && expenseAmount !== '')) {
     return;
   } else {
@@ -61,8 +62,7 @@ function onAddExpense() {
         ${expense}
       </td>
       <td class="expense-value">
-        <span class="dollar"></span>
-        ${expenseAmount}
+        <span class="dollar"></span>${expenseAmount}
       </td>
       <td>
         <span class="fa fa-pencil-square-o edit-icon" title="Edit" onclick='onEdit(this)'></span>
@@ -78,8 +78,7 @@ function onAddExpense() {
 
 // On Edit Function
 function onEdit(tableData) {
-  // Get data into input boxes
-  var selectedRow = tableData.parentElement.parentElement;
+  let selectedRow = tableData.parentElement.parentElement;
   document.getElementById('expense').value = selectedRow.cells[0].innerText;
   document.getElementById("expense-amount").value = selectedRow.cells[1].innerText;
   removeRow();
@@ -87,14 +86,14 @@ function onEdit(tableData) {
 
 // On Delete Function
 function onDelete() {
-  var isConfirmed = confirm("Do you want to delete this entry?");
+  let isConfirmed = confirm("Do you want to delete this entry?");
   if (isConfirmed) {
     removeRow();
   }
 }
 
 // Calculate Expense
-function calculateExpense() {
+let calculateExpense = () => {
   let totalExpense = 0;
   let expenseValue = document.getElementsByClassName('expense-value');
   for (let i = 0; i < expenseValue.length; i++) {
@@ -103,13 +102,31 @@ function calculateExpense() {
   expenseText.innerHTML = totalExpense;
 }
 
-// Remove a Row
-function removeRow() {
-  var tableBody = document.querySelector('tbody');
-  var tableRow = document.querySelectorAll("tbody tr");
-  for (var i = 0; i < tableRow.length; i++) {
+// Removes a Row
+let removeRow = () => {
+  let tableBody = document.querySelector('tbody');
+  let tableRow = document.querySelectorAll("tbody tr");
+  for (let i = 0; i < tableRow.length; i++) {
     tableRow[i].onclick = function () {
       tableBody.removeChild(this);
     }
+  }
+}
+
+// Show Helper Function
+let showHelper = (index) => {
+  for (let i = 0; i < helperLength; i++) {
+    helperArray[index].style.opacity = '1';
+    helperArray[index].style.paddingLeft = '12px';
+    helperArray[index].style.transition = '.2s';
+  }
+}
+
+// Hide Helper Function
+let hideHelper = (index) => {
+  for (let i = 0; i < helperLength; i++) {
+    helperArray[index].style.opacity = '0';
+    helperArray[index].style.paddingLeft = '6px';
+    helperArray[index].style.transition = '.2s';
   }
 }
