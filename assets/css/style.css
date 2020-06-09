@@ -195,6 +195,13 @@ input {
   background-color: #b62f31;
 }
 
+.helper {
+  padding-left: 6px;
+  color: #f00;
+  font-size: 12px;
+  opacity: 0;
+}
+
 .flexbox-right {
   width: 60%;
 }
@@ -251,7 +258,29 @@ thead tr th:nth-of-type(3) { display: none; }
 
 th, td {
   width: 33.33%;
+  text-align: center;
 }
+
+tbody tr {
+  text-transform: uppercase;
+  color: #b62f31;
+}
+
+tbody tr:nth-of-type(1) {
+  margin-top: 12px;
+}
+
+.edit-icon, .delete-icon {
+  padding: 6px;
+  color: #05658f;
+  cursor: pointer;
+}
+
+.delete-icon {
+  color: #b62f31;
+}
+
+.dollar::before { content: '$'; }
 
 /*=================================
   main styling ends here
