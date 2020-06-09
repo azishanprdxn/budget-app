@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Harvest | Home</title>
+  <title>Budget App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,20 +15,81 @@
   <!--container start-->
   <div class="container">
     <!--header section start-->
-    <header>
-
-    </header>
+    <header></header>
     <!--header section start-->
     <!--main section start-->
     <main>
-
+      <div class="wrapper">
+        <h1>BUDGET APP</h1>
+        <div class="flex-container">
+          <div class="flexbox-left">
+            <div class="budget-area">
+              <div class="input-area">
+                <label for="budget">Please Enter Your Budget</label>
+                <input type="text" id="budget">
+              </div>
+              <div class="input-control">
+                <button type="button" class="calculate" id="calculate">Calculate</button>
+              </div>
+            </div>
+            <div class="expense-area">
+              <div class="input-area">
+                <label for="expense">Please Enter Your Expense</label>
+                <input type="text" id="expense">
+              </div>
+              <div class="input-area">
+                <label for="expense-amount">Please Enter Expense Amount</label>
+                <input type="text" id="expense-amount">
+              </div>
+              <div class="input-control">
+                <button type="button" class="add-expense" id="add-expense">Add Expense</button>
+              </div>
+            </div>
+          </div>
+          <div class="flexbox-right">
+            <div class="inner-flex">
+              <div class="inner-flexbox">
+                <div class="content">
+                  <h2>Budget</h2>
+                  <span class="fa fa-money icons"></span>
+                  <p>$ <span id="budget-text">0</span></p>
+                </div>
+              </div>
+              <div class="inner-flexbox">
+                <div class="content">
+                  <h2>Expenses</h2>
+                  <span class="fa fa-credit-card icons"></span>
+                  <p>$ <span id="expense-text">0</span></p>
+                </div>
+              </div>
+              <div class="inner-flexbox">
+                <div class="content">
+                  <h2>Balance</h2>
+                  <span class="fa fa-usd icons"></span>
+                  <p>$ <span id="balance-text">0</span></p>
+                </div>
+              </div>
+              <div class="data">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Expense Title</th>
+                      <th>Expense Value</th>
+                      <th>Edit/Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody id="entered-data"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
     <!--main section end-->
 
     <!--footer section start-->
-    <footer>
-
-    </footer>
+    <footer></footer>
     <!--footer section end-->
   </div>
   <!--container end-->
