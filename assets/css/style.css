@@ -82,6 +82,7 @@ sub { bottom: -.25em; }
 body {
   box-sizing: border-box;
   font-family: sans-serif;
+  background-color: #f5f5f5;
 }
 
 a { 
@@ -115,7 +116,142 @@ li {
   main styling starts here
 =================================*/
 
+h1 {
+  margin: 24px 0;
+  font-weight: 600;
+}
 
+label {
+  padding-bottom: 4px;
+  display: block;
+  font-size: 14px;
+}
+
+.input-area {
+  width: 100%;
+  padding: 12px 0;
+}
+
+input {
+  width: 93.5%;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-right: 12px;
+  outline: none;
+}
+
+.flex-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flexbox-left {
+  width: 40%;
+}
+
+.budget-area, .expense-area {
+  padding: 12px;
+  border: 2px solid #466b40;
+  border-radius: 4px;
+  margin-right: 24px;
+}
+
+.expense-area {
+  border: 2px solid #b62f31;
+  margin-top: 64px;
+  margin-bottom: 24px;
+}
+
+.budget-area input {
+  border: 1px solid #466b40;
+}
+
+.expense-area input {
+  border: 1px solid #b62f31;
+}
+
+.calculate, .add-expense {
+  padding: 4px 12px;
+  border: 1px solid #466b40;
+  border-radius: 4px;
+  color: #466b40;
+  background-color: transparent;
+  outline: none;
+}
+
+.calculate:hover {
+  color: #fff;
+  background-color: #466b40;
+}
+
+.add-expense {
+  border: 1px solid #b62f31;
+  color: #b62f31;
+}
+
+.add-expense:hover {
+  color: #fff;
+  background-color: #b62f31;
+}
+
+.flexbox-right {
+  width: 60%;
+}
+
+.inner-flex {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inner-flexbox {
+  width: 33.33%;
+}
+
+.content {
+  text-align: center;
+}
+
+h2 {
+  padding: 4px 0 24px 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.icons {
+  color: #05658f;
+  font-size: 38px;
+}
+
+.content p {
+  padding: 24px 0;
+  font-size: 32px;
+  color: #466b40;
+}
+
+.content p.text-red {
+  color: #b62f31;
+}
+
+table {
+  width: 100%;
+  margin: 24px 0;
+  font-size: 14px;
+}
+
+tr {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+thead tr th:nth-of-type(3) { display: none; }
+
+th, td {
+  width: 33.33%;
+}
 
 /*=================================
   main styling ends here
@@ -132,5 +268,22 @@ li {
 =================================*/ 
 
 /*media query starts*/
-/*media query for 995px starts here*/
-@media only screen and (max-width: 995px) {}  
+/*media query for 1024px starts here*/
+@media only screen and (max-width: 1024px) {
+  input { width: 91%; }
+}  
+
+/*media query for 768px starts here*/
+@media only screen and (max-width: 768px) {
+  .flexbox-left { width: 100%; }
+  .flexbox-right { width: 100%; }
+  .budget-area, .expense-area { margin-right: 0; }
+  .expense-area { margin-top: 24px; }
+  input { width: 95%; }
+}
+
+/*media query for 425px starts here*/
+@media only screen and (max-width: 425px) {
+  input { width: 91%; }
+  .inner-flexbox { width: 100%; }
+}  

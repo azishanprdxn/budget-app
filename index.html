@@ -26,23 +26,23 @@
             <div class="budget-area">
               <div class="input-area">
                 <label for="budget">Please Enter Your Budget</label>
-                <input type="text" id="budget">
+                <input type="text" id="budget" required>
               </div>
               <div class="input-control">
-                <button type="button" class="calculate" id="calculate">Calculate</button>
+                <button type="button" class="calculate" id="calculate" title="Calculate">Calculate</button>
               </div>
             </div>
             <div class="expense-area">
               <div class="input-area">
                 <label for="expense">Please Enter Your Expense</label>
-                <input type="text" id="expense">
+                <input type="text" id="expense" required>
               </div>
               <div class="input-area">
                 <label for="expense-amount">Please Enter Expense Amount</label>
-                <input type="text" id="expense-amount">
+                <input type="text" id="expense-amount" required>
               </div>
               <div class="input-control">
-                <button type="button" class="add-expense" id="add-expense">Add Expense</button>
+                <button type="button" class="add-expense" id="add-expense" title="Add Expense">Add Expense</button>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@
                 <div class="content">
                   <h2>Expenses</h2>
                   <span class="fa fa-credit-card icons"></span>
-                  <p>$ <span id="expense-text">0</span></p>
+                  <p class="text-red">$ <span id="expense-text">0</span></p>
                 </div>
               </div>
               <div class="inner-flexbox">
@@ -69,18 +69,16 @@
                   <p>$ <span id="balance-text">0</span></p>
                 </div>
               </div>
-              <div class="data">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Expense Title</th>
-                      <th>Expense Value</th>
-                      <th>Edit/Delete</th>
-                    </tr>
-                  </thead>
-                  <tbody id="entered-data"></tbody>
-                </table>
-              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Expense Title</th>
+                    <th>Expense Value</th>
+                    <th>Edit/Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="entered-data"></tbody>
+              </table>
             </div>
           </div>
         </div>
